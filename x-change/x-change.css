@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul{
+    list-style-type: none;
+}
+.box{
+    width:789px;
+    height:auto;
+    margin:0;
+    
+}
+.list-box{
+    margin: 0 auto;
+    width: 700px;
+    height: 42px;
+    border-bottom: 1px solid #eeeeee;
+}
+.list{
+    float:right;
+    padding-top:10px;
+}
+.list-box ul li{
+    cursor: pointer;
+    width: 30px;
+    height: 26px;
+    float: left;
+    display: block;
+    background: url("listype-icon.png") no-repeat;
+}
+.changelist .change-list-1{
+    height:200px;
+    width:200px;
+    border:1px solid #aaaaaa;
+    float:left;
+    margin-left:20px;
+}
+.changelist .change-list-2{
+    height:200px;
+}
