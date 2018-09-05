@@ -2,17 +2,36 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var jsonParser=bodyParser.json();
+var jsonParser = bodyParser.json();
 //body parser
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(jsonParser);
 //var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static('public'));
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/' + 'milkytea.html');
 })
-app.get('/milkytea.html',function(req,res){
-    res.sendFile(__dirname+"/"+"milkytea.html");
+app.post('/milkytea.json', function (req, res) {
+    var type = req.body.type;//解析请求数据，并提取需要数据
+    console.log(type);
+    fs.readFile("./public/milkytea.json", function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        else {
+            var tea = data.toString();
+            tea = JSON.parse(tea);
+            console.log(tea);
+            var need = tea[type];
+            console.log(need);
+            console.log("1");
+            res.send(need);
+            //res.end();
+        }
+    })
+})
+app.get('/milkytea.html', function (req, res) {
+    res.sendFile(__dirname + "/" + "milkytea.html");
 })
 app.post('/post', function (req, res) {
     datas = {
@@ -43,8 +62,8 @@ app.post('/post', function (req, res) {
     })
     //res.sendFile("milkytea.html");
     //res.write("");
-    res.writeHead(200,{"Content-Type":"test/html;charset=utf8"})
-    res.end("提交成功，请返回查看");
+    //res.writeHead(200,{"Content-Type":"test/html;charset=utf8"})
+    res.send(datas);
 })
 var server = app.listen(8080, function () {
     var host = server.address().address

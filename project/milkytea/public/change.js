@@ -24,7 +24,7 @@ fs.readFile("milkytea.json",function(err,data){
     console.log(yidiandian[5]);
     console.log(coco[6]);
     console.log(coco[5]);
-   yidiandian.pop();
+    coco.pop();
     //coco.pop(coco[6]);
    //siyun.pop(siyun[5]);
     console.log(tea);

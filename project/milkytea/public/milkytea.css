@@ -22,12 +22,13 @@ ul{
     
 }
 .personal{
-    margin-left: 50px;
-    margin-top:200px;
-    border:1px solid #c0c0c0;
-    width:300px;
+    margin-left: 400px;
+    margin-top:150px;
+    border:10px solid #c0c0c0;
+    width:500px;
     height:200px;
     float:left;
+    background-image:url("background.JPG");
 }
 ul.personal-list{
     margin-top:30px;
