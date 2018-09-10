@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+}
+.list{
+    position: relative;
+    margin-top:30px;
+    margin-left:70px;
+    height:200px;
+    width:1000px;
+    float:left;
+}
+ul{
+    list-style-type:none;
+}
+.pic{
+    height:450px;
+    width:300px;
+    float:left;
+    margin-left:30px;
+}
+.pic-box{
+    
+}
+.personal{
+    margin-left: 400px;
+    margin-top:150px;
+    border:10px solid #c0c0c0;
+    width:500px;
+    height:200px;
+    float:left;
+    background-image:url("background.JPG");
+}
+ul.personal-list{
+    margin-top:30px;
+    margin-left:30px;
+}

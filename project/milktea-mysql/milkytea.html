@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        最爱奶茶榜</title>
+    <link rel="stylesheet" type="text/css" href="milkytea.css">
+    <script src='jquery.js'></script>
+    
+</head>
+
+<body>
+    <div class="list">
+        <ul class="list-1">
+            <li class="pic">
+                <div class="pic-box">
+                    <img class="yidiandian" src="yidiandian.JPG" style="width:300px;height:250px">
+
+                    <ul class="yidiandian" id="yidiandian">
+                    </ul>
+                </div>
+            </li>
+            <li class="pic">
+                <div class="pic-box">
+                    <img class="siyun" src="siyun.JPG" style="width:300px;height: 250px">
+
+                    <ul class="siyun" id="siyun">
+                    </ul>
+                </div>
+            </li>
+            <li class="pic">
+                <div class="pic-box">
+                    <img class="coco" src="coco.JPG" style="width:300px;height: 250px">
+
+                    <ul class="coco" id="coco">
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="personal">
+        <ul class="personal-list">
+            <li>
+                <p>填写你自己的喜好</p>
+            </li>
+            <br>
+            <li>
+                <form action="http://127.0.0.1:8080/post" method="POST" id="submit">
+                    <label>type:</label>
+                    <select name="type" id="type">
+                    <option>一点点</option>
+                    <option>coco</option>
+                    <option>四云奶盖贡茶</option>
+                    </select>    
+                    <br>
+                    <label>what:</label>
+                    <input type="text" name="name" id="name">
+                    <br>
+                    <label>which:</label>
+                    <input type="text" name="best" id="best">
+                    <br>
+                    <br>
+                    <br>
+                    <button id="ok">submit</button>
+                    <button id="change">change</button>
+                    <button id="delete">delete</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+<script src="milkytea.js"></script>
+</html>
