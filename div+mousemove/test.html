@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+        #demo{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="demo">
+        </div>
+        <script>
+            window.onload=function(){
+                function drag(obj){//
+                    this.obj=obj;
+                }
+                console.log(typeof drag);
+                console.log(drag.constructor);
+                drag.prototype={
+                    //constructor:drag,
+                    getInitPostison:function(e){//获取鼠标相对触发事件左上角的位置
+                        e=e||window.event;
+                        var eX,eY;
+                        eX=e.offsetX;
+                        eY=e.offsetY;
+                        return {x:eX,y:eY}
+                        
+                    },
+                    getmouseCoordinate:function(e){//获取鼠标相对于文档左上角的位置
+                        e=e||window.event;
+                        var eX,eY;
+                        if(e.pageX||e.pagey){
+                            eX=e.pageX;
+                            eY=e.pageY;
+                            return {x:eX,y:eY}
+                        }
+                    },
+                    initdrag:function(){
+                        var div=this;
+                     div.onmousedown=function(e){
+                       var pos=div.getInitPostison(e);//按下鼠标时，鼠标相对于元素的位置
+                         document.onmousemove=function(e){
+                           var pos1=div.getmouseCoordinate(e);
+                           var x=pos1.x-pos.x;
+                           var y=pos1.y-pos.y;
+                           console.log(x);
+                           console.log(y);
+                           div.obj.style.marginLeft=x+'px';
+                           div.obj.style.marginTop=y+'px';
+                         }
+                         document.onmouseup=function(e){
+                            document.onmousemove=null;
+                            document.onmouseup=null;
+                         }
+                     }
+                    }
+                }
+                var drags=document.getElementById('demo');
+                var dragElement=new drag(drags);
+                dragElement.initdrag();
+            }
+            </script>
+    </body>
+</html>
