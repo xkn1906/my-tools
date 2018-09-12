@@ -1,0 +1,53 @@
+
+pageX>=clientX
+pageX相对于文档窗口的左上角
+clientX相对于可视窗口左上角
+offsetX是指鼠标相对触发事件元素的左上角的偏移（不同的浏览器值不同）
+offsetleft触发事件元素相对于document左边的距离
+
+JS中每个函数都是一个Function对象
+匿名函数的this不指向该函数
+非匿名函数指向该函数
+函数表达式可以忽略名称从而创建匿名函数
+不是function开头的是函数表达式（不会变量提升），function开头是函数声明
+var f=function g(){
+    return 23;
+}
+等价于
+var f=function(){
+    return 23;
+}
+
+object.prototype属性表示object的原型对象
+prototype属于function对象，非function对象无定义
+__proto__属性所有对象都有
+var p = {
+	c: function() {
+		console.log('c');
+	}
+}
+ 
+function Person() {}
+Person.prototype.a = function() {
+	console.log("a");
+}
+Person.prototype.__proto__ = p;
+Person.prototype.__proto__.b = function() {
+	console.log("b");
+}
+var person = new Person();
+person.a(); // 自对象方法 a
+person.b(); // 继承对象方法 b
+person.c(); // 继承对象方法 c
+
+var person = new Person();
+console.log(person.__proto__ === Person.prototype); // true
+var p={
+    c:function(){
+        console.log('c');
+    }
+}
+person.__proto__=p;
+Person.prototype=p;
+会破坏原型链；
+Person.prototype.__proto__=p;不会

@@ -1,67 +1,86 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <style>
-        #demo{
-            width: 50px;
-            height: 50px;
-            background-color: aqua;
-        }
-        </style>
-    </head>
-    <body>
-        <div id="demo">
-        </div>
-        <script>
-            window.onload=function(){
-                function drag(obj){//
-                    this.obj=obj;
-                }
-                console.log(typeof drag);
-                console.log(drag.constructor);
-                drag.prototype={
-                    //constructor:drag,
-                    getInitPostison:function(e){//获取鼠标相对触发事件左上角的位置
-                        e=e||window.event;
-                        var eX,eY;
-                        eX=e.offsetX;
-                        eY=e.offsetY;
-                        return {x:eX,y:eY}
-                        
-                    },
-                    getmouseCoordinate:function(e){//获取鼠标相对于文档左上角的位置
-                        e=e||window.event;
-                        var eX,eY;
-                        if(e.pageX||e.pagey){
-                            eX=e.pageX;
-                            eY=e.pageY;
-                            return {x:eX,y:eY}
-                        }
-                    },
-                    initdrag:function(){
-                        var div=this;
-                     div.onmousedown=function(e){
-                       var pos=div.getInitPostison(e);//按下鼠标时，鼠标相对于元素的位置
-                         document.onmousemove=function(e){
-                           var pos1=div.getmouseCoordinate(e);
-                           var x=pos1.x-pos.x;
-                           var y=pos1.y-pos.y;
-                           console.log(x);
-                           console.log(y);
-                           div.obj.style.marginLeft=x+'px';
-                           div.obj.style.marginTop=y+'px';
-                         }
-                         document.onmouseup=function(e){
-                            document.onmousemove=null;
-                            document.onmouseup=null;
-                         }
-                     }
-                    }
-                }
-                var drags=document.getElementById('demo');
-                var dragElement=new drag(drags);
-                dragElement.initdrag();
+<head>
+    <title>test</title>
+</head>
+<style type="text/css">
+#drag1 {
+    width: 50px;
+    height: 50px;
+    background-color: #404040;
+    cursor: pointer;
+}
+</style>
+<body>
+    <div id = "drag1"></div>
+</body>
+<script type="text/javascript">
+window.onload = function() {//window对象表示浏览器中打开的窗口
+    function Drag(obj) {
+        this.obj = obj;//元素对象设置为drag的obj属性
+    }
+    Drag.prototype = {
+        constructor: Drag,
+        getInitPosition: function(e) {//获取鼠标相对于元素左上角的初始位置
+            
+            //e = e || window.event;//兼容IE和非IE的写法
+            console.log(e);
+            var eX,eY;
+            if(e.pageX || e.pageY){
+                eX = e.pageX;
+                eY = e.pageY;
             }
-            </script>
-    </body>
+            //pageX>=clientX
+            eX = e.clientX;//事件发生是鼠标相对可视文档区域的位置（不考虑滚轮）
+            eY = e.clientY;
+            console.log(eX);
+            console.log(this);
+            var positionX = eX- this.obj.offsetLeft;//鼠标相对于源元素左上角的位置
+            var positionY = eY - this.obj.offsetTop;//e.offsetX
+            console.log(positionX);
+            return {
+                x: positionX,
+                y: positionY
+            } 
+        },
+        //获得鼠标相对于文档左上角的位置
+        getmouseCoordinate:function(e) {
+            //e = e || window.event;
+            if(e.pageX || e.pageY){
+                  return {x:e.pageX, y:e.pageY};
+            }
+            return {
+                  x:e.clientX + document.body.scrollLeft - document.body.clientLeft,
+                  y:e.clientY + document.body.scrollTop  - document.body.clientTop
+             };    
+        },
+        initDrag:function() {
+            var tempThis = this;
+            console.log(this);
+            this.obj.onmousedown = function(e) {
+                var initP = tempThis.getInitPosition(e);
+                document.onmousemove = function(ex) {
+                    var moveP = tempThis.getmouseCoordinate(ex);
+                    tempThis.obj.style.marginTop = moveP.y - initP.y + "px"; 
+                    tempThis.obj.style.marginLeft = moveP.x - initP.x + "px"; 
+                }
+                document.onmouseup = function(){ 
+                    document.onmousemove = null;  
+                    document.onmouseup = null; 
+                }
+            }
+        }
+    }
+    var drag = document.getElementById("drag1");
+    var dragElement = new Drag(drag);
+    dragElement.initDrag();
+    function A() {
+
+       this.do=function() {return 'foo';};
+
+     }
+     A.prototype.b=function B() {
+      this.do=function() {return 'bar'};
+     };
+}
+</script>
 </html>
