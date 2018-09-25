@@ -1,0 +1,14 @@
+可以设定background-size将background-image和div填充
+color是文本属性 text-align也是文本属性
+absolute绝对定位是相对于最近的父元素的定位
+relative相对元素块经常用来做绝对元素的容器块
+#img的长度必须设置为所有图片的总宽度，这样才可以一排显示；
+display:block 显示为块级元素（总是独占一行）
+inline 显示为内敛元素 和相邻的内联元素同在一行
+inline-block显示为内敛块元素
+居中可以设置margin：atuo，必须要设置元素宽度
+@keyframes{}填写动画规则
+可以监听animation事件  
+事件有：animationstart
+       animationteration
+       animationend

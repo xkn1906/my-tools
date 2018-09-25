@@ -1,0 +1,14 @@
+setTimeout("repeat.apply(null,args)",4500);
+循环repeat（）函数需要参数，所以需要将arguments添加到repeat函数中去
+调用一次setTimeout函数就会返回一个id值
+last需要定义在repeat函数外面否则clearTimeout找不到标识
+用setTimeout(function(){},times)调用函数比较好
+否则需要setTimeout("action()",time)
+用Ready（）函数将repeat函数闭包起来，为了引用last，每触发一次repeat函数前将计时器关闭
+
+要实现颜色的切换需要jquery.color.js插件
+使用jquery中animate函数
+
+z-index表此元素可以被堆砌，具有较高堆叠顺序的元素总是在较低堆叠顺序的前面
+将div1的堆叠顺序降低， 也可以将div1和decorating（position为sticky）的顺序交换
+absolute定位的元素相对于父元素定位，与其他元素重叠

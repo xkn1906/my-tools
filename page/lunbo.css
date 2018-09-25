@@ -1,0 +1,64 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+#testimonials{
+    margin-top:100px;
+    margin-bottom:100px;
+    height:600px;
+    background-image:url(bottom.jpg);
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    font-display: block;
+    font-size: 20px;
+    text-align:center;
+    color:white;
+}
+ul{
+    list-style-type: none;
+}
+div #h1{
+    margin-top:50px;
+    padding-top:50px;
+    height:100px;
+    margin:auto;
+}
+div #box{
+  height:300px;
+  width:1000px;
+  overflow: hidden;
+  position:relative;
+  margin:auto;
+}
+#img{
+    position:absolute;
+    width:3000px;
+    height:400px;
+    margin:0px;
+    padding:0px;
+}
+img{
+    border-radius: 70%;
+}
+#img #li{
+    width:1000px;
+    height: 400px;
+    float:left;
+}
+div #icon{
+    height: 100px;
+    width:200px;
+    margin:auto;
+}
+#ilist{
+
+    margin:auto;
+}
+i{
+    display: inline-block;
+    width:15px;
+    height: 15px;
+    border-radius:50%;
+    background:white;
+   
+}
