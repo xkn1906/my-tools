@@ -1,6 +1,6 @@
 body{
-    margin:0px;
-    padding:0px;
+    margin:10px;
+    padding:10px;
 }
 #testimonials{
     margin-top:100px;
@@ -16,24 +16,24 @@ body{
 }
 ul{
     list-style-type: none;
+    padding:0px;
 }
 div #h1{
-    margin-top:50px;
-    padding-top:50px;
     height:100px;
-    margin:auto;
+    line-height:100px;
+    margin:0px auto;
 }
 div #box{
   height:300px;
   width:1000px;
   overflow: hidden;
   position:relative;
-  margin:auto;
+  margin:0px auto;
 }
 #img{
     position:absolute;
     width:3000px;
-    height:400px;
+    height:300px;
     margin:0px;
     padding:0px;
 }
@@ -42,7 +42,7 @@ img{
 }
 #img #li{
     width:1000px;
-    height: 400px;
+    height: 300px;
     float:left;
 }
 div #icon{
@@ -51,8 +51,9 @@ div #icon{
     margin:auto;
 }
 #ilist{
-
-    margin:auto;
+    width:100px;
+    margin:0 auto;
+    padding:0;
 }
 i{
     display: inline-block;
@@ -61,4 +62,7 @@ i{
     border-radius:50%;
     background:white;
    
+}
+i.on{
+    background:#80ffff;
 }
