@@ -12,3 +12,6 @@ inline-block显示为内敛块元素
 事件有：animationstart
        animationteration
        animationend
+
+轮播图：
+可以设置left来移动图像。可以将距离分隔多次移动产生动画的效果。

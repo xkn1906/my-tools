@@ -8,7 +8,7 @@ function move(ele,x_final,y_final,interval){
     if(x_pos==x_final&&y_pos==y_final){
         return;
     }
-    dist=Math.ceil(Math.abs(x_final-x_pos)/10);//取上值，分10次移动完成
+    dist=Math.ceil(Math.abs(x_final-x_pos)/10);//取上值，分多次移动完成
     x_pos=x_pos<x_final?x_pos+dist:x_pos-dist;
     //console.log(x_pos);
     dist=Math.ceil(Math.abs(y_final-y_pos)/10);
